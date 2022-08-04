@@ -34,4 +34,9 @@ contract DeFiDividendBaseContract {
         uint dividend = (currentTimestamp - userStakedDate) * dividendRate * userStakedAmount;
         return dividend;
     }
+
+    function withdraw(address _address) public {
+        uint payableDividend = getPayableDividend(_address);
+        payable(msg.sender).transfer(payableDividend);
+    }
 }
