@@ -37,6 +37,8 @@ contract DeFiDividendBaseContract {
 
     function withdraw(address _address) public {
         uint payableDividend = getPayableDividend(_address);
-        payable(msg.sender).transfer(payableDividend);
+        uint userStakedAmount = getStakedAmount(_address);
+        uint withdrawable = payableDividend + userStakedAmount;
+        payable(msg.sender).transfer(withdrawable);
     }
 }
