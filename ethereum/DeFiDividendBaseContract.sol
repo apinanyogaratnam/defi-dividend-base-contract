@@ -21,4 +21,9 @@ contract DeFiDividendBaseContract {
     function setStakedAmount(address _address, uint _amount) public {
         stakedAmount[_address] = _amount;
     }
+
+    function stake() public payable {
+        setStakedDate(msg.sender);
+        setStakedAmount(msg.sender, msg.value);
+    }
 }
