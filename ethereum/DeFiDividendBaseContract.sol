@@ -26,4 +26,12 @@ contract DeFiDividendBaseContract {
         setStakedDate(msg.sender);
         setStakedAmount(msg.sender, msg.value);
     }
+
+    function getPayableDividend(address _address) public view returns (uint) {
+        uint currentTimestamp = block.timestamp;
+        uint userStakedDate = getStakedDate(_address);
+        uint userStakedAmount = getStakedAmount(_address);
+        uint dividend = (currentTimestamp - userStakedDate) * dividendRate * userStakedAmount;
+        return dividend;
+    }
 }
