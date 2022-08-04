@@ -3,6 +3,7 @@ pragma solidity ^0.8.10;
 
 contract DeFiDividendBaseContract {
     mapping(address => uint) stakedDate;
+    mapping(address => uint) stakedAmount;
     uint dividendRate = 10;
 
     function getStakedDate(address _address) public view returns (uint) {
