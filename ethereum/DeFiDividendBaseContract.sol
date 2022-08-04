@@ -17,4 +17,8 @@ contract DeFiDividendBaseContract {
     function getStakedAmount(address _address) public view returns (uint) {
         return stakedAmount[_address];
     }
+
+    function setStakedAmount(address _address, uint _amount) public {
+        stakedAmount[_address] = _amount;
+    }
 }
