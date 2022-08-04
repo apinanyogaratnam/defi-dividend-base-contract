@@ -13,4 +13,8 @@ contract DeFiDividendBaseContract {
     function setStakedDate(address _address) public {
         stakedDate[_address] = block.timestamp;
     }
+
+    function getStakedAmount(address _address) public view returns (uint) {
+        return stakedAmount[_address];
+    }
 }
